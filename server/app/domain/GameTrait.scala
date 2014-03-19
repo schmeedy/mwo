@@ -1,14 +1,14 @@
 package domain
 
-trait MwTrait extends SpellQualifier {
+trait GameTrait {
   def name: String
 }
 
-abstract class PlainTrait(val name: String) extends MwTrait {
+abstract class PlainTrait(val name: String) extends GameTrait {
   override def toString = name
 }
 
-abstract class XTrait(val name: String, x: Int) extends MwTrait {
+abstract class XTrait(val name: String, x: Int) extends GameTrait {
   override def toString = {
     val baseName = name.replaceAll("[\\+\\/\\-X]", "").trim
     val sign = if (x > 0 && (name.contains("+") || name.contains("-"))) "+" else ""
@@ -18,7 +18,7 @@ abstract class XTrait(val name: String, x: Int) extends MwTrait {
 
 // We have object traits ...
 
-sealed trait ObjectTrait extends MwTrait
+sealed trait ObjectTrait extends GameTrait
 abstract class PlainObjectTrait(name: String) extends PlainTrait(name) with ObjectTrait
 abstract class XObjectTrait(name: String, x: Int) extends XTrait(name, x) with ObjectTrait
 
@@ -69,7 +69,7 @@ case object Restrained extends PlainObjectTrait("Restrained")
 
 // ... and attack traits ...
 
-sealed trait AttackTrait extends MwTrait
+sealed trait AttackTrait extends GameTrait
 abstract class PlainAttackTrait(name: String) extends PlainTrait(name) with AttackTrait
 abstract class XAttackTrait(name: String, x: Int) extends XTrait(name, x) with AttackTrait
 
@@ -87,7 +87,7 @@ case class OrAttack(options: List[AttackTrait]) extends AttackTrait {
 case class Piercing(x: Int) extends XAttackTrait("Piercing +X", x)
 case object Reach extends PlainAttackTrait("Reach")
 case object Sweeping extends PlainAttackTrait("Sweeping")
-case class TargetModifier(target: SpellQualifier, x: Int) extends AttackTrait {
+case class TargetModifier(target: Qualifier[GameObject], x: Int) extends AttackTrait {
   def name = s"+/- X vs. $target"
 
   override def toString = s"${if (x > 0) "+" else ""}$x vs. $target"

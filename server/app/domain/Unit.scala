@@ -1,6 +1,6 @@
 package domain
 
-class Unit extends Spell {
+trait Unit extends GameObject {
 
 }
 

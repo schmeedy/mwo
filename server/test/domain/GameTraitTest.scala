@@ -2,7 +2,7 @@ package domain
 
 import org.scalatest.FunSpec
 
-class MwTraitTest extends FunSpec {
+class GameTraitTest extends FunSpec {
 
   describe("Plain Object Trait") {
     it("should print it's name") {
@@ -50,11 +50,11 @@ class MwTraitTest extends FunSpec {
 
   describe("Target Modifiers") {
     it("should support negative values") {
-      assert(TargetModifier(Flying, -2).toString == "-2 vs. Flying")
+      assert(TargetModifier(GameObject withTrait Flying, -2).toString == "-2 vs. Flying")
     }
 
     it("should print with plus sign for positive values") {
-      assert(TargetModifier(Corporeal, 2).toString == "+2 vs. Corporeal")
+      assert(TargetModifier(Qualifier.and(List(GameObject withTrait Corporeal, Spell ofType Creature)), 2).toString == "+2 vs. Corporeal Creature")
     }
   }
 
