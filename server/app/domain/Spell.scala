@@ -7,8 +7,6 @@ trait Spell {
 object Spell {
   def ofType[E <: Spell](st: SpellType) = new Qualifier[E] {
     def apply(spell: E) = spell.spellType == st
-
-    def description = st.toString
   }
 }
 

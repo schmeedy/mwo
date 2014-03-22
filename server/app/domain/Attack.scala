@@ -21,3 +21,14 @@ case object Lightning extends DamageType
 case object Poison extends DamageType
 case object Psychic extends DamageType
 case object Wind extends DamageType
+
+sealed trait AttackEffect
+case object Push extends AttackEffect
+case class GainCondition(condition: Condition, x: Int = 1) extends AttackEffect {
+  require(x > 0, "number of condition markers has to be greater than 0")
+
+  override def toString = (if (x > 1) x + " " else "") + condition.toString
+}
+case class AndAttackEffect(effects: List[AttackEffect]) extends AttackEffect {
+  override def toString = effects.mkString(" & ")
+}
