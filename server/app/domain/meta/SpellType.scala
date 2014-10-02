@@ -1,14 +1,6 @@
-package domain
+package domain.meta
 
-trait Spell {
-  def spellType: SpellType
-}
-
-object Spell {
-  def ofType[E <: Spell](st: SpellType) = new Qualifier[E] {
-    def apply(spell: E) = spell.spellType == st
-  }
-}
+import domain.common.Enum
 
 object SpellType extends Enum[SpellType]
 sealed trait SpellType extends SpellType.Value

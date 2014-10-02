@@ -1,4 +1,4 @@
-package domain
+package domain.common
 
 trait Enum[A] {
   trait Value { self: A =>

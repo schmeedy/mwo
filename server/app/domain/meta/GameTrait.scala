@@ -1,4 +1,7 @@
-package domain
+package domain.meta
+
+import domain.common.Qualifier
+import domain.GameObject
 
 trait GameTrait {
   def name: String

@@ -1,6 +1,8 @@
-package domain
+package domain.meta
 
 import org.scalatest.FunSpec
+import domain._
+import domain.common.Qualifier
 
 class GameTraitTest extends FunSpec {
 
@@ -54,7 +56,7 @@ class GameTraitTest extends FunSpec {
     }
 
     it("should print with plus sign for positive values") {
-      assert(TargetModifier(Qualifier.and(List(GameObject withTrait Corporeal, Spell ofType Creature)), 2).toString == "+2 vs. Corporeal Creature")
+      assert(TargetModifier(Qualifier.and(List(GameObject withTrait Corporeal, GameObject fromSpell (Spell ofType Creature))), 2).toString == "+2 vs. Corporeal Creature")
     }
   }
 

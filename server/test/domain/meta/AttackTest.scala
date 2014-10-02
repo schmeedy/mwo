@@ -1,4 +1,4 @@
-package domain
+package domain.meta
 
 import org.scalatest.FunSpec
 

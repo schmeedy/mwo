@@ -1,4 +1,6 @@
-package domain
+package domain.meta
+
+import domain.common
 
 case class Attack(
   attackType: AttackType,
@@ -7,12 +9,12 @@ case class Attack(
   traits: Set[AttackTrait]) {
 }
 
-object AttackType extends Enum[AttackType]
+object AttackType extends common.Enum[AttackType]
 sealed trait AttackType extends AttackType.Value
 case object Melee extends AttackType
 case object Ranged extends AttackType
 
-object DamageType extends Enum[DamageType]
+object DamageType extends common.Enum[DamageType]
 sealed trait DamageType extends DamageType.Value
 case object Flame extends DamageType
 case object Hydro extends DamageType
