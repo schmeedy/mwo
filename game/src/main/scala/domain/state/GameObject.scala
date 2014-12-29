@@ -1,10 +1,9 @@
-package domain
+package domain.state
 
-import domain.meta.{Spell, ObjectTrait}
-import domain.common.Qualifier
+import domain.state.meta.{Spell, ObjectTrait}
+import domain.state.common.Qualifier
 
 trait GameObject {
-  def uuid: String
   def spell: Spell
   def traits: Set[ObjectTrait]
 }
