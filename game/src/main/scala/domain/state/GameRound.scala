@@ -7,7 +7,10 @@ case class GameRound(
   initiative: MageId,
   phase: PhaseType)
 
-object PhaseType extends Enum[PhaseType]
+object PhaseType extends Enum[PhaseType] {
+  InitiativePhase; ResetPhase; ChannelingPhase; UpkeepPhase; PlanningPhase;
+  DeploymentPhase; FirstQuickcastPhase; ActionPhase; FinalQuickcastPhase
+}
 sealed trait PhaseType extends PhaseType.Value
 
 // Ready Stage

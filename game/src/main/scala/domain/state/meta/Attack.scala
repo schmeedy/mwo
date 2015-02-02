@@ -9,12 +9,16 @@ case class Attack(
   traits: Set[AttackTrait]) {
 }
 
-object AttackType extends domain.state.common.Enum[AttackType]
+object AttackType extends domain.state.common.Enum[AttackType] {
+  Melee; Ranged
+}
 sealed trait AttackType extends AttackType.Value
 case object Melee extends AttackType
 case object Ranged extends AttackType
 
-object DamageType extends domain.state.common.Enum[DamageType]
+object DamageType extends domain.state.common.Enum[DamageType] {
+  Flame; Hydro; Light; Lightning; Poison; Psychic; Wind
+}
 sealed trait DamageType extends DamageType.Value
 case object Flame extends DamageType
 case object Hydro extends DamageType

@@ -2,7 +2,9 @@ package domain.state.meta
 
 import domain.state.common.Enum
 
-object SpellSubtype extends Enum[SpellSubtype]
+object SpellSubtype extends Enum[SpellSubtype] {
+  Animal; Command; Demon; FlameSpell; Soldier
+}
 trait SpellSubtype extends SpellSubtype.Value
 case object Animal extends SpellSubtype
 case object Command extends SpellSubtype

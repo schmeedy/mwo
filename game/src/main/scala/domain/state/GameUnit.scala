@@ -5,14 +5,13 @@ import monocle.syntax._
 
 case class UnitId(uuid: String)
 
-case class Unit (
+case class GameUnit (
   id: UnitId,
   spell: Spell,
   stats: UnitStats,
   traits: Set[ObjectTrait],
   conditions: Set[ConditionMarker],
   zone: Zone,
-  controller: MageId,
-  hasActed: Boolean) extends GameObject
+  controller: MageId) extends GameObject
 
 case class ConditionMarker(uuid: String, condition: Condition)

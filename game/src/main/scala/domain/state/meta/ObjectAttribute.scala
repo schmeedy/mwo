@@ -2,7 +2,9 @@ package domain.state.meta
 
 import domain.state.common.Enum
 
-object ObjectAttribute extends Enum[ObjectAttribute]
+object ObjectAttribute extends Enum[ObjectAttribute] {
+  Armor; Channeling; Life
+}
 sealed trait ObjectAttribute extends ObjectAttribute.Value
 case object Armor extends ObjectAttribute
 case object Channeling extends ObjectAttribute

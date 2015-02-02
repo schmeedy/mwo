@@ -48,9 +48,9 @@ object Spell {
   }
 }
 
-object SpellTarget extends Enum[SpellTarget] {
+object SpellTarget {
   def apply(q: Qualifier[Spell]) = ObjectTarget(q)
 }
-sealed trait SpellTarget extends SpellTarget.Value
+sealed trait SpellTarget
 case object ZoneTarget extends SpellTarget
 case class ObjectTarget(q: Qualifier[Spell]) extends SpellTarget

@@ -2,7 +2,10 @@ package domain.state.meta
 
 import domain.state.common.Enum
 
-object School extends Enum[School]
+object School extends Enum[School] {
+  ArcaneSchool; DarkSchool; HolySchool; MindSchool; NatureSchool
+  WarSchool; AirSchool; EarthSchool; FireSchool; WaterSchool
+}
 sealed trait School extends School.Value
 // major schools
 case object ArcaneSchool extends School
